@@ -2,33 +2,17 @@
   <div id="app" class="calculadora">
     <h1>Calculadora Aritmética</h1>
 
-    <!-- Campo do primeiro número -->
-    <input
-      type="number"
-      v-model.number="numero1"
-      placeholder="Digite o primeiro número"
-    />
+    <input type="number" v-model.number="numero1" placeholder="Digite o primeiro número" />
 
-    <!-- Campo do segundo número -->
-    <input
-      type="number"
-      v-model.number="numero2"
-      placeholder="Digite o segundo número"
-    />
+    <input type="number" v-model.number="numero2" placeholder="Digite o segundo número" />
 
-    <!-- Botões para selecionar a operação -->
     <div class="operacoes">
-      <button
-        v-for="operacao in operacoes"
-        :key="operacao.id"
-        :class="{ ativo: operacao.id === operacaoSelecionada }"
-        @click="selecionarOperacao(operacao.id)"
-      >
+      <button v-for="operacao in operacoes" :key="operacao.id" :class="{ ativo: operacao.id === operacaoSelecionada }"
+        @click="selecionarOperacao(operacao.id)">
         {{ operacao.simbolo }}
       </button>
     </div>
 
-    <!-- resultado -->
     <div class="resultado">
       <span>Resultado:</span>
       <strong>{{ resultado }}</strong>
@@ -40,8 +24,8 @@
 export default {
   data() {
     return {
-      numero1: 0, 
-      numero2: 0, 
+      numero1: 0,
+      numero2: 0,
       operacoes: [
         { id: "somar", simbolo: "+" },
         { id: "subtrair", simbolo: "-" },
@@ -53,7 +37,7 @@ export default {
   },
   methods: {
     selecionarOperacao(id) {
-      this.operacaoSelecionada = id; 
+      this.operacaoSelecionada = id;
     },
   },
   computed: {
@@ -79,7 +63,6 @@ export default {
 </script>
 
 <style scoped>
-
 .calculadora {
   max-width: 400px;
   margin: 50px auto;
@@ -169,5 +152,4 @@ input:focus {
   color: #333;
   margin-top: 5px;
 }
-
 </style>
